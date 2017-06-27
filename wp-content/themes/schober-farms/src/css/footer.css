@@ -1,0 +1,25 @@
+footer span {
+  position: relative;
+  clear: both;
+  display: block; }
+footer .col-8 *:first-child {
+  margin-top: 0px; }
+footer .col-8 * {
+  font-size: 20px;
+  margin-top: 40px; }
+footer .col-8 span.lead {
+  font-size: 30px;
+  font-style: italic; }
+footer .col-4 {
+  text-align: right; }
+  footer .col-4 .phone {
+    font-style: italic;
+    color: #E2231A;
+    font-size: 24px; }
+  footer .col-4 *:first-child {
+    margin-top: 0px; }
+  footer .col-4 * {
+    font-size: 20px;
+    margin-top: 20px; }
+
+/*# sourceMappingURL=footer.css.map */

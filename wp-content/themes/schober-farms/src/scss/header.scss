@@ -11,6 +11,7 @@ nav{
 	margin: 0 auto;
 	.menu{
 		padding-left:0px;
+		margin-bottom:0px;
 		> li{
 			list-style:none;
 			display: inline-block;
@@ -34,6 +35,8 @@ nav{
 		}
 	}
 
+	
+
 	.phoneNumber{
 		padding-left:0px;
 		border-left:0px;
@@ -52,7 +55,7 @@ nav{
 	nav{
 		.phoneNumber{
 		    float: right;
-		    margin-top: -55px;
+		    margin-top: -38px;
 		    border-left:1px solid #fff;
 		    padding-left:40px;
 		}

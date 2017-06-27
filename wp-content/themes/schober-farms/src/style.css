@@ -1,4 +1,30 @@
 /*! schober-farms - v0.1.0 */
+footer span {
+  position: relative;
+  clear: both;
+  display: block; }
+footer .col-8 *:first-child {
+  margin-top: 0px; }
+footer .col-8 * {
+  font-size: 20px;
+  margin-top: 40px; }
+footer .col-8 span.lead {
+  font-size: 30px;
+  font-style: italic; }
+footer .col-4 {
+  text-align: right; }
+  footer .col-4 .phone {
+    font-style: italic;
+    color: #E2231A;
+    font-size: 24px; }
+  footer .col-4 *:first-child {
+    margin-top: 0px; }
+  footer .col-4 * {
+    font-size: 20px;
+    margin-top: 20px; }
+
+/*# sourceMappingURL=footer.css.map */
+
 header {
   padding: 40px 0;
   text-align: center; }
@@ -8,7 +34,8 @@ nav {
   text-align: center;
   margin: 0 auto; }
   nav .menu {
-    padding-left: 0px; }
+    padding-left: 0px;
+    margin-bottom: 0px; }
     nav .menu > li {
       list-style: none;
       display: inline-block;
@@ -37,7 +64,7 @@ nav {
 @media (min-width: 1200px) {
   nav .phoneNumber {
     float: right;
-    margin-top: -55px;
+    margin-top: -38px;
     border-left: 1px solid #fff;
     padding-left: 40px; } }
 

@@ -7,7 +7,8 @@ nav {
   text-align: center;
   margin: 0 auto; }
   nav .menu {
-    padding-left: 0px; }
+    padding-left: 0px;
+    margin-bottom: 0px; }
     nav .menu > li {
       list-style: none;
       display: inline-block;
@@ -36,7 +37,7 @@ nav {
 @media (min-width: 1200px) {
   nav .phoneNumber {
     float: right;
-    margin-top: -55px;
+    margin-top: -38px;
     border-left: 1px solid #fff;
     padding-left: 40px; } }
 

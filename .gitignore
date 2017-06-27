@@ -86,6 +86,7 @@ Thumbs.db
 # "plugins" directory
 # "themes" directory
 wp-content/*
+!wp-content/Gruntfile.js
 !wp-content/mu-plugins/
 !wp-content/themes/
 
