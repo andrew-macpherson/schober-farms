@@ -12,6 +12,11 @@ function schober_styles_scripts() {
     wp_enqueue_style( 'style', get_stylesheet_uri() );
 
     // SCSS COMIPLED CSS FILE
-    wp_register_style('schober_styles', wp_enqueue_style( 'slider', get_template_directory_uri() . '/src/css/style.css',false,'1.1','all'));
+    wp_register_style('schober_styles', wp_enqueue_style( 'slider', get_template_directory_uri() . '/src/style.css',false,'1.1','all'));
     wp_enqueue_style('schober_styles');
 }
+
+//REGISTER MENU
+register_nav_menus( array(
+    'main' => 'Main Menu'
+) );

@@ -1,0 +1,43 @@
+header {
+  padding: 40px 0;
+  text-align: center; }
+
+nav {
+  background: #E2231A;
+  text-align: center;
+  margin: 0 auto; }
+  nav .menu {
+    padding-left: 0px; }
+    nav .menu > li {
+      list-style: none;
+      display: inline-block;
+      padding: 0px 10px; }
+      nav .menu > li > a {
+        color: #ffffff;
+        text-decoration: none;
+        display: block;
+        padding: 10px 0;
+        text-transform: uppercase;
+        font-weight: 600; }
+      nav .menu > li > a:hover {
+        border-bottom: 4px solid #ffffff; }
+    nav .menu > li.current-menu-item a {
+      border-bottom: 4px solid #ffffff; }
+  nav .phoneNumber {
+    padding-left: 0px;
+    border-left: 0px;
+    float: none;
+    display: block;
+    margin-top: 0px;
+    color: #fff;
+    line-height: 30px;
+    font-weight: 600; }
+
+@media (min-width: 1200px) {
+  nav .phoneNumber {
+    float: right;
+    margin-top: -55px;
+    border-left: 1px solid #fff;
+    padding-left: 40px; } }
+
+/*# sourceMappingURL=header.css.map */

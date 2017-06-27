@@ -10,3 +10,18 @@
         <?php wp_head(); ?>
     </head>
     <body>
+
+
+<header>
+	<div class="container">
+		<a href="<?php echo bloginfo('url'); ?>"><img src="<?php echo bloginfo('template_url'); ?>/assets/images/schober-farms-logo.png" /></a>
+	</div>
+</header>
+<nav>
+	<div class="container">
+		<?php wp_nav_menu( array('menu' => 'main') ); ?>
+		<div class="phoneNumber">
+			<span>CALL (705) 322-PIGS (7447)</span>
+		</div>
+	</div>
+</nav>

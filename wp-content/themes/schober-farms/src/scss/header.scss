@@ -1,0 +1,60 @@
+@import "mixins";
+
+header{
+	padding:40px 0;
+	text-align:center;
+}
+
+nav{
+	background: $primary-color;
+	text-align:center;
+	margin: 0 auto;
+	.menu{
+		padding-left:0px;
+		> li{
+			list-style:none;
+			display: inline-block;
+			padding:0px 10px;
+			> a{
+				color: #ffffff;
+				text-decoration: none;
+				display: block;
+				padding: 10px 0;
+				text-transform:uppercase;
+				font-weight:600;
+			}
+			& > a:hover{
+				border-bottom:4px solid #ffffff;
+			}
+		}
+		& > li.current-menu-item{
+			a{
+				border-bottom:4px solid #ffffff;
+			}
+		}
+	}
+
+	.phoneNumber{
+		padding-left:0px;
+		border-left:0px;
+		float:none;
+		display:block;
+		margin-top:0px;
+		color: #fff;
+		line-height:30px;
+	    font-weight:600;
+	}
+
+}
+
+
+@media (min-width: 1200px){
+	nav{
+		.phoneNumber{
+		    float: right;
+		    margin-top: -55px;
+		    border-left:1px solid #fff;
+		    padding-left:40px;
+		}
+	}
+}
