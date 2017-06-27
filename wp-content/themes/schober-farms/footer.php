@@ -9,7 +9,7 @@
 			</div>
 			<div class="col-4">
 				<span class="phone">Call 705-322-PIGS (7447)</span>
-				<a href="#" class="btn btn-danger">GET DIRECTIONS</a>
+				<a href="#" class="btn btn-primary">GET DIRECTIONS</a>
 				<span>4145 Crossland Road<br/>
 				Tiny, Ontario L0L 1P1</span>
 			</div>

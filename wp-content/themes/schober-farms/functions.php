@@ -32,14 +32,64 @@ register_nav_menus( array(
 
 
 
+//BUTTON SHORT CODES
+function button_func($atts,$content){
+    extract( shortcode_atts( array(
+        'id' => '',
+        'class' => '',
+        'link' => '',
+        'title' => '',
+        'target' => '',
+        'bg_color' => '',
+        'text_color' => '',
+        'sub_title' => ''
+    ), $atts ) );
+
+    $content = do_shortcode( shortcode_unautop( $content ) );
+    if ( '</p>' == substr( $content, 0, 4 )and '<p>' == substr( $content, strlen( $content ) - 3 ) )
+        $content = substr( $content, 4, strlen( $content ) - 7 );
+    return '<a href="'.$link.'" title="'.$title.'" class="btn btn-primary'.$class.'" '.(($target != '') ? 'target="'.$target.'" ':'').' '.(($bg_color != '' || $text_color != '') ? 'style="'.(($bg_color != '')?'background-color:'.$bg_color.';border-color:'.$bg_color.';':'').' '.(($text_color != '')?'color:'.$text_color.';':'').' " ':'').'>' . force_balance_tags($content) . ' '.(($sub_title != '')?"<span class='sub_title'>".$sub_title."</span>":"").'</a>';
+}
+
+add_shortcode( 'button', 'button_func' );
+
+
+
 
 /// BOOTSTRAP COLUMN SHORT CODES
+function div($atts, $content = null) {
+    extract(shortcode_atts(array(
+            'class' => '',
+            'id' => '',
+            'background_color' => '',
+            'background_image' => '',
+    ), $atts));
+
+    if($background_color != '' || $background_image != '' ){
+        $openStyle = true;
+    }else{
+        $openStyle = false;
+    }
+
+    return '<div id="'. $id .'" class="'. $class .'" '.(($openStyle) ? 'style="':'').' '.(($background_image != '') ? 'background-image: url('.$background_image.'); ':'').' '.(($background_color != '') ? 'background-color: '.$background_color.'; ':'').' '.(($openStyle) ? '"':'').'>'.do_shortcode($content).'</div>';
+}
+add_shortcode ("div", "div");
+
 function container($atts, $content = null) {
     extract(shortcode_atts(array(
             'class' => '',
             'id' => '',
+            'background_color' => '',
+            'background_image' => '',
     ), $atts));
-    return '<div id="'. $id .'" class="container '. $class .'">'.do_shortcode($content).'</div>';
+
+    if($background_color != '' || $background_image != '' ){
+        $openStyle = true;
+    }else{
+        $openStyle = false;
+    }
+
+    return '<div id="'. $id .'" class="container '. $class .'" '.(($openStyle) ? 'style="':'').' '.(($background_image != '') ? 'background-image: url('.$background_image.'); ':'').' '.(($background_color != '') ? 'background-color: '.$background_color.'; ':'').' '.(($openStyle) ? '"':'').'>'.do_shortcode($content).'</div>';
 }
 add_shortcode ("container", "container");
 
@@ -47,8 +97,17 @@ function row($atts, $content = null) {
     extract(shortcode_atts(array(
             'class' => '',
             'id' => '',
+            'background_color' => '',
+            'background_image' => '',
     ), $atts));
-    return '<div id="'. $id .'" class="row '. $class .'">'.do_shortcode($content).'</div>';
+
+    if($background_color != '' || $background_image != '' ){
+        $openStyle = true;
+    }else{
+        $openStyle = false;
+    }
+
+    return '<div id="'. $id .'" class="row '. $class .'" '.(($openStyle) ? 'style="':'').' '.(($background_image != '') ? 'background-image: url('.$background_image.'); ':'').' '.(($background_color != '') ? 'background-color: '.$background_color.'; ':'').' '.(($openStyle) ? '"':'').'>'.do_shortcode($content).'</div>';
 }
 add_shortcode ("row", "row");
 

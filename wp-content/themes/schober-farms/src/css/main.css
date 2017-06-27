@@ -5,4 +5,20 @@ body {
 .container {
   width: 1000px; }
 
+.btn-primary {
+  background-color: #E2231A !important;
+  border-color: #E2231A !important; }
+
+.btn span.sub_title {
+  font-size: .7em;
+  display: block; }
+
+.redBg {
+  background: gray;
+  padding: 0 15px 9999px 9999px;
+  margin: 0 -15px -9999px -9999px; }
+
+.overflow-hidden {
+  overflow: hidden; }
+
 /*# sourceMappingURL=main.css.map */
