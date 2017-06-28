@@ -3,11 +3,11 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title></title>
-        <meta name="description" content="">
+        <title><?php wp_title(); ?></title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <?php wp_head(); ?>
+        <link rel='stylesheet' id='style-css'  href='<?php echo get_template_directory_uri(); ?>/src/style.css'' type='text/css' media='all' />
     </head>
     <body>
 

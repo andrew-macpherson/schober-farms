@@ -1,0 +1,12 @@
+.card {
+  background-color: rgba(255, 255, 255, 0.5); }
+  .card .card-header {
+    background-color: #E2231A;
+    color: #ffffff;
+    font-size: 30px;
+    line-height: 60px;
+    padding: 10px 30px; }
+  .card .card-block {
+    background-color: rgba(255, 255, 255, 0.5); }
+
+/*# sourceMappingURL=bootstrap-components.css.map */

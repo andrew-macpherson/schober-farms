@@ -5,7 +5,7 @@ footer span {
 footer .col-8 *:first-child {
   margin-top: 0px; }
 footer .col-8 * {
-  font-size: 20px;
+  font-size: 18px;
   margin-top: 40px; }
 footer .col-8 span.lead {
   font-size: 30px;
@@ -19,7 +19,8 @@ footer .col-4 {
   footer .col-4 *:first-child {
     margin-top: 0px; }
   footer .col-4 * {
-    font-size: 20px;
-    margin-top: 20px; }
+    font-size: 17px;
+    margin-top: 20px;
+    line-height: 25px; }
 
 /*# sourceMappingURL=footer.css.map */

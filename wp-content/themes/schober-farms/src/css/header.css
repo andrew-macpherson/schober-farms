@@ -17,7 +17,7 @@ nav {
         color: #ffffff;
         text-decoration: none;
         display: block;
-        padding: 10px 0;
+        padding: 20px 0 16px 0;
         text-transform: uppercase;
         font-weight: 600; }
       nav .menu > li > a:hover {
@@ -37,7 +37,7 @@ nav {
 @media (min-width: 1200px) {
   nav .phoneNumber {
     float: right;
-    margin-top: -38px;
+    margin-top: -43px;
     border-left: 1px solid #fff;
     padding-left: 40px; } }
 

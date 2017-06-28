@@ -1,5 +1,8 @@
 <?php
 
+/*--- THEME SUPPORT ---*/
+add_theme_support('post-thumbnails');
+
 // Register style sheet.
 add_action( 'wp_enqueue_scripts', 'schober_styles_scripts' );
 
@@ -12,8 +15,6 @@ function schober_styles_scripts() {
     wp_enqueue_style( 'style', get_stylesheet_uri() );
 
     // SCSS COMIPLED CSS FILE
-    wp_register_style('schober_styles', get_template_directory_uri() . '/src/style.css', array(). '1.0');
-    wp_enqueue_style('schober_styles');
 
     wp_register_style( 'bootstrap', get_template_directory_uri() . '/src/libraries/bootstrap-4.0.0/css/bootstrap.min.css', $deps, $ver, $in_footer );
     wp_enqueue_style('bootstrap');
@@ -32,6 +33,9 @@ register_nav_menus( array(
 
 
 
+
+add_shortcode( 'card', 'card' );
+
 //BUTTON SHORT CODES
 function button_func($atts,$content){
     extract( shortcode_atts( array(
@@ -48,7 +52,7 @@ function button_func($atts,$content){
     $content = do_shortcode( shortcode_unautop( $content ) );
     if ( '</p>' == substr( $content, 0, 4 )and '<p>' == substr( $content, strlen( $content ) - 3 ) )
         $content = substr( $content, 4, strlen( $content ) - 7 );
-    return '<a href="'.$link.'" title="'.$title.'" class="btn btn-primary'.$class.'" '.(($target != '') ? 'target="'.$target.'" ':'').' '.(($bg_color != '' || $text_color != '') ? 'style="'.(($bg_color != '')?'background-color:'.$bg_color.';border-color:'.$bg_color.';':'').' '.(($text_color != '')?'color:'.$text_color.';':'').' " ':'').'>' . force_balance_tags($content) . ' '.(($sub_title != '')?"<span class='sub_title'>".$sub_title."</span>":"").'</a>';
+    return '<a href="'.$link.'" title="'.$title.'" class="btn '.$class.'" '.(($target != '') ? 'target="'.$target.'" ':'').' '.(($bg_color != '' || $text_color != '') ? 'style="'.(($bg_color != '')?'background-color:'.$bg_color.';border-color:'.$bg_color.';':'').' '.(($text_color != '')?'color:'.$text_color.';':'').' " ':'').'>' . force_balance_tags($content) . ' '.(($sub_title != '')?"<span class='sub_title'>".$sub_title."</span>":"").'</a>';
 }
 
 add_shortcode( 'button', 'button_func' );
@@ -56,7 +60,54 @@ add_shortcode( 'button', 'button_func' );
 
 
 
-/// BOOTSTRAP COLUMN SHORT CODES
+/// BOOTSTRAP SHORT CODES
+
+function card($atts,$content){
+    extract( shortcode_atts( array(
+        'id' => '',
+        'class' => '',
+        'title' => ''
+    ), $atts ) );
+
+    $content = do_shortcode( shortcode_unautop( $content ) );
+    if ( '</p>' == substr( $content, 0, 4 )and '<p>' == substr( $content, strlen( $content ) - 3 ) )
+        $content = substr( $content, 4, strlen( $content ) - 7 );
+
+
+    return '
+        <div class="card">
+            '.(($title != '')?'<div class="card-header">'.$title.'</div>':'').'
+            <div class="card-block">'.force_balance_tags($content).'</div>
+        </div>
+    ';
+}
+
+
+function half_and_half($atts, $content = null) {
+    extract(shortcode_atts(array(
+            'class' => '',
+            'id' => '',
+            'background_color_1' => '',
+            'background_color_2' => '',
+    ), $atts));
+
+
+    $return = '';
+    $return .= '<div class="overflow-hidden">';
+
+         $content = do_shortcode( shortcode_unautop( $content ) );
+        if ( '</p>' == substr( $content, 0, 4 )and '<p>' == substr( $content, strlen( $content ) - 3 ) )
+            $content = substr( $content, 4, strlen( $content ) - 7 );
+
+        $return .= force_balance_tags($content);
+    $return .= '</div>';
+
+    return $return;
+
+    //return '<div id="'. $id .'" class="'. $class .'" '.(($openStyle) ? 'style="':'').' '.(($background_image != '') ? 'background-image: url('.$background_image.'); ':'').' '.(($background_color != '') ? 'background-color: '.$background_color.'; ':'').' '.(($openStyle) ? '"':'').'>'.do_shortcode($content).'</div>';
+}
+add_shortcode ("half_and_half", "half_and_half");
+
 function div($atts, $content = null) {
     extract(shortcode_atts(array(
             'class' => '',
@@ -71,9 +122,14 @@ function div($atts, $content = null) {
         $openStyle = false;
     }
 
-    return '<div id="'. $id .'" class="'. $class .'" '.(($openStyle) ? 'style="':'').' '.(($background_image != '') ? 'background-image: url('.$background_image.'); ':'').' '.(($background_color != '') ? 'background-color: '.$background_color.'; ':'').' '.(($openStyle) ? '"':'').'>'.do_shortcode($content).'</div>';
+    $content = do_shortcode( shortcode_unautop( $content ) );
+        if ( '</p>' == substr( $content, 0, 4 )and '<p>' == substr( $content, strlen( $content ) - 3 ) )
+            $content = substr( $content, 4, strlen( $content ) - 7 );
+        
+    return '<div id="'. $id .'" class="'. $class .'" '.(($openStyle) ? 'style="':'').' '.(($background_image != '') ? 'background-image: url('.$background_image.'); ':'').' '.(($background_color != '') ? 'background-color: '.$background_color.'; ':'').' '.(($openStyle) ? '"':'').'>'.force_balance_tags($content).'</div>';
 }
 add_shortcode ("div", "div");
+
 
 function container($atts, $content = null) {
     extract(shortcode_atts(array(
@@ -88,6 +144,10 @@ function container($atts, $content = null) {
     }else{
         $openStyle = false;
     }
+
+    $content = do_shortcode( shortcode_unautop( $content ) );
+        if ( '</p>' == substr( $content, 0, 4 )and '<p>' == substr( $content, strlen( $content ) - 3 ) )
+            $content = substr( $content, 4, strlen( $content ) - 7 );
 
     return '<div id="'. $id .'" class="container '. $class .'" '.(($openStyle) ? 'style="':'').' '.(($background_image != '') ? 'background-image: url('.$background_image.'); ':'').' '.(($background_color != '') ? 'background-color: '.$background_color.'; ':'').' '.(($openStyle) ? '"':'').'>'.do_shortcode($content).'</div>';
 }
@@ -107,120 +167,10 @@ function row($atts, $content = null) {
         $openStyle = false;
     }
 
+    $content = do_shortcode( shortcode_unautop( $content ) );
+        if ( '</p>' == substr( $content, 0, 4 )and '<p>' == substr( $content, strlen( $content ) - 3 ) )
+            $content = substr( $content, 4, strlen( $content ) - 7 );
+
     return '<div id="'. $id .'" class="row '. $class .'" '.(($openStyle) ? 'style="':'').' '.(($background_image != '') ? 'background-image: url('.$background_image.'); ':'').' '.(($background_color != '') ? 'background-color: '.$background_color.'; ':'').' '.(($openStyle) ? '"':'').'>'.do_shortcode($content).'</div>';
 }
 add_shortcode ("row", "row");
-
-function col_1($atts, $content = null) {
-    extract(shortcode_atts(array(
-            'class' => '',
-            'id' => '',
-    ), $atts));
-    return '<div id="'. $id .'" class="col-1 '. $class .'">'.do_shortcode($content).'</div>';
-}
-add_shortcode ("col_1", "col_1");
-
-function col_2($atts, $content = null) {
-    extract(shortcode_atts(array(
-            'class' => '',
-            'id' => '',
-    ), $atts));
-    return '<div id="'. $id .'" class="col-2 '. $class .'">'.do_shortcode($content).'</div>';
-}
-add_shortcode ("col_2", "col_2");
-
-function col_3($atts, $content = null) {
-    extract(shortcode_atts(array(
-            'class' => '',
-            'id' => '',
-    ), $atts));
-    return '<div id="'. $id .'" class="col-3 '. $class .'">'.do_shortcode($content).'</div>';
-}
-add_shortcode ("col_3", "col_3");
-
-
-function col_4($atts, $content = null) {
-    extract(shortcode_atts(array(
-            'class' => '',
-            'id' => '',
-    ), $atts));
-    return '<div id="'. $id .'" class="col-4 '. $class .'">'.do_shortcode($content).'</div>';
-}
-add_shortcode ("col_4", "col_4");
-
-
-function col_5($atts, $content = null) {
-    extract(shortcode_atts(array(
-            'class' => '',
-            'id' => '',
-    ), $atts));
-    return '<div id="'. $id .'" class="col-5 '. $class .'">'.do_shortcode($content).'</div>';
-}
-add_shortcode ("col_5", "col_5");
-
-
-function col_6($atts, $content = null) {
-    extract(shortcode_atts(array(
-            'class' => '',
-            'id' => '',
-    ), $atts));
-    return '<div id="'. $id .'" class="col-6 '. $class .'">'.do_shortcode($content).'</div>';
-}
-add_shortcode ("col_6", "col_6");
-
-
-function col_7($atts, $content = null) {
-    extract(shortcode_atts(array(
-            'class' => '',
-            'id' => '',
-    ), $atts));
-    return '<div id="'. $id .'" class="col-7 '. $class .'">'.do_shortcode($content).'</div>';
-}
-add_shortcode ("col_7", "col_7");
-
-
-function col_8($atts, $content = null) {
-    extract(shortcode_atts(array(
-            'class' => '',
-            'id' => '',
-    ), $atts));
-    return '<div id="'. $id .'" class="col-8 '. $class .'">'.do_shortcode($content).'</div>';
-}
-add_shortcode ("col_8", "col_8");
-
-
-function col_9($atts, $content = null) {
-    extract(shortcode_atts(array(
-            'class' => '',
-            'id' => '',
-    ), $atts));
-    return '<div id="'. $id .'" class="col-9 '. $class .'">'.do_shortcode($content).'</div>';
-}
-add_shortcode ("col_9", "col_9");
-
-function col_10($atts, $content = null) {
-    extract(shortcode_atts(array(
-            'class' => '',
-            'id' => '',
-    ), $atts));
-    return '<div id="'. $id .'" class="col-10 '. $class .'">'.do_shortcode($content).'</div>';
-}
-add_shortcode ("col_10", "col_10");
-
-function col_11($atts, $content = null) {
-    extract(shortcode_atts(array(
-            'class' => '',
-            'id' => '',
-    ), $atts));
-    return '<div id="'. $id .'" class="col-11 '. $class .'">'.do_shortcode($content).'</div>';
-}
-add_shortcode ("col_11", "col_11");
-
-function col_12($atts, $content = null) {
-    extract(shortcode_atts(array(
-            'class' => '',
-            'id' => '',
-    ), $atts));
-    return '<div id="'. $id .'" class="col-12 '. $class .'">'.do_shortcode($content).'</div>';
-}
-add_shortcode ("col_12", "col_12");

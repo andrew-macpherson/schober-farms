@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAEA,KAAK;EACJ,gBAAgB,EAAE,wBAAqB;EAEvC,kBAAY;IACX,gBAAgB,ECLF,OAAO;IDMrB,KAAK,EAAE,OAAO;IACd,SAAS,EAAE,IAAI;IACf,WAAW,EAAE,IAAI;IACd,OAAO,EAAE,SAAS;EAEtB,iBAAW;IACV,gBAAgB,EAAE,wBACnB",
+"sources": ["../scss/bootstrap-components.scss","../scss/mixins.scss"],
+"names": [],
+"file": "bootstrap-components.css"
+}

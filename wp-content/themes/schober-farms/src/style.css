@@ -1,4 +1,17 @@
 /*! schober-farms - v0.1.0 */
+.card {
+  background-color: rgba(255, 255, 255, 0.5); }
+  .card .card-header {
+    background-color: #E2231A;
+    color: #ffffff;
+    font-size: 30px;
+    line-height: 60px;
+    padding: 10px 30px; }
+  .card .card-block {
+    background-color: rgba(255, 255, 255, 0.5); }
+
+/*# sourceMappingURL=bootstrap-components.css.map */
+
 footer span {
   position: relative;
   clear: both;
@@ -6,7 +19,7 @@ footer span {
 footer .col-8 *:first-child {
   margin-top: 0px; }
 footer .col-8 * {
-  font-size: 20px;
+  font-size: 18px;
   margin-top: 40px; }
 footer .col-8 span.lead {
   font-size: 30px;
@@ -20,8 +33,9 @@ footer .col-4 {
   footer .col-4 *:first-child {
     margin-top: 0px; }
   footer .col-4 * {
-    font-size: 20px;
-    margin-top: 20px; }
+    font-size: 17px;
+    margin-top: 20px;
+    line-height: 25px; }
 
 /*# sourceMappingURL=footer.css.map */
 
@@ -44,7 +58,7 @@ nav {
         color: #ffffff;
         text-decoration: none;
         display: block;
-        padding: 10px 0;
+        padding: 20px 0 16px 0;
         text-transform: uppercase;
         font-weight: 600; }
       nav .menu > li > a:hover {
@@ -64,7 +78,7 @@ nav {
 @media (min-width: 1200px) {
   nav .phoneNumber {
     float: right;
-    margin-top: -38px;
+    margin-top: -43px;
     border-left: 1px solid #fff;
     padding-left: 40px; } }
 
@@ -74,24 +88,141 @@ body {
   font: 100% Arial, sans-serif;
   color: #010101; }
 
+h1 {
+  font-size: 30px;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+  font-weight: 600; }
+
+h2 {
+  font-size: 30px;
+  margin-bottom: 20px; }
+
+h3 {
+  font-size: 26px;
+  margin-bottom: 20px; }
+
+h4 {
+  font-size: 24px;
+  margin-bottom: 20px; }
+
+h5 {
+  font-size: 22px;
+  margin-bottom: 20px; }
+
+h6 {
+  font-size: 20px;
+  margin-bottom: 20px; }
+
+p {
+  font-size: 20px;
+  line-height: 28px;
+  margin-bottom: 20px; }
+
+b, strong {
+  font-weight: 600; }
+
+img {
+  max-width: 100%;
+  height: auto; }
+  img.aligncenter {
+    position: relative;
+    display: block;
+    margin: 0 auto; }
+
+.alignleft {
+  float: left;
+  text-align: left; }
+
+.aligncenter {
+  float: none;
+  text-align: center; }
+
+.alignright {
+  float: right;
+  text-align: right; }
+
+.mainBanner {
+  width: 100%; }
+  .mainBanner img {
+    max-width: 100%;
+    height: auto; }
+
 .container {
   width: 1000px; }
+  .container.paddingtop100 {
+    padding-top: 100px; }
+  .container.paddingbottom100 {
+    padding-bottom: 100px; }
+  .container.paddingtop250 {
+    padding-top: 250px; }
+  .container.paddingbottom250 {
+    padding-bottom: 250px; }
+  .container .row {
+    margin: 30px 0;
+    padding: 30px 0; }
+  .container .row.margin0 {
+    margin: 0px; }
+  .container .row.padding0 {
+    padding: 0px; }
+  .container .equalWidthButtons {
+    padding: 30px 20px; }
+    .container .equalWidthButtons .btn {
+      width: 230px; }
+
+.col > p:last-child {
+  margin-bottom: 0px;
+  font-weight: 100; }
+
+.redWhiteBg {
+  background: #E2231A;
+  background: -moz-linear-gradient(left, #E2231A 0%, #E2231A 50%, #ffffff 50%, #ffffff 100%, #ffffff 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #E2231A 0%, #E2231A 50%, #ffffff 50%, #ffffff 100%, #ffffff 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, #E2231A 0%, #E2231A 50%, #ffffff 50%, #ffffff 100%, #ffffff 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$primary-color', endColorstr='#ffffff',GradientType=1 );
+  /* IE6-9 */ }
+
+.redWhiteBg .row > .col-6:first-child * {
+  color: #ffffff; }
 
 .btn-primary {
   background-color: #E2231A !important;
   border-color: #E2231A !important; }
 
-.btn span.sub_title {
-  font-size: .7em;
-  display: block; }
+.btn {
+  border-radius: 0px; }
+  .btn span.sub_title {
+    font-size: .7em;
+    display: block; }
 
 .redBg {
-  background: gray;
-  padding: 0 15px 9999px 9999px;
+  background: #E2231A;
+  padding: 60px 15px 9999px 9999px;
   margin: 0 -15px -9999px -9999px; }
+
+.redBg * {
+  color: #ffffff; }
 
 .overflow-hidden {
   overflow: hidden; }
+
+.mainHeadline p {
+  font-style: italic;
+  font-size: 25px; }
+
+.largeWhiteBtn {
+  color: #231F20;
+  font-size: 30px;
+  background-color: #FFFFFF;
+  font-weight: 600;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5); }
+
+.paralaxBg {
+  background-attachment: fixed;
+  background-position: center center; }
 
 /*# sourceMappingURL=main.css.map */
 

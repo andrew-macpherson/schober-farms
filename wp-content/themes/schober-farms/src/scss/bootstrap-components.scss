@@ -1,0 +1,16 @@
+@import "mixins";
+
+.card{
+	background-color: rgba(255,255,255,0.5);
+
+	.card-header{
+		background-color: $primary-color;
+		color: #ffffff;
+		font-size: 30px;
+		line-height: 60px;
+	    padding: 10px 30px;	
+	}
+	.card-block{
+		background-color: rgba(255,255,255,0.5)
+	}
+}
