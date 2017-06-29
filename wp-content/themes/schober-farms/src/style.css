@@ -1,6 +1,13 @@
 /*! schober-farms - v0.1.0 */
 .card {
-  background-color: rgba(255, 255, 255, 0.5); }
+  background-color: rgba(255, 255, 255, 0.5);
+  width: 100%; }
+  .card.padding0 {
+    padding: 0px; }
+    .card.padding0 .card-block {
+      padding: 0px; }
+    .card.padding0 .col {
+      padding: 0px; }
   .card .card-header {
     background-color: #E2231A;
     color: #ffffff;
@@ -9,6 +16,13 @@
     padding: 10px 30px; }
   .card .card-block {
     background-color: rgba(255, 255, 255, 0.5); }
+  .card .table thead {
+    background-color: #E2231A;
+    color: #ffffff; }
+    .card .table thead th {
+      text-align: center; }
+  .card .table tbody td {
+    text-align: center; }
 
 /*# sourceMappingURL=bootstrap-components.css.map */
 
@@ -223,6 +237,40 @@ img {
 .paralaxBg {
   background-attachment: fixed;
   background-position: center center; }
+
+a.blackBox {
+  display: block; }
+  a.blackBox:hover {
+    text-decoration: none;
+    color: #fff; }
+
+.blackBox {
+  background-color: #010101;
+  color: #ffffff;
+  text-align: center;
+  padding: 25px; }
+  .blackBox.arrowBottom {
+    padding-bottom: 60px; }
+  .blackBox.arrowBottom:after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    bottom: 20px;
+    border-top: 20px solid #ffffff;
+    position: absolute;
+    left: 50%;
+    margin-left: -12px; }
+  .blackBox p {
+    margin-bottom: 0px;
+    font-size: 20px; }
+    .blackBox p:first-child {
+      font-size: 30px;
+      line-height: 36px;
+      font-weight: 600; }
+  .blackBox a {
+    color: #ffffff; }
 
 /*# sourceMappingURL=main.css.map */
 

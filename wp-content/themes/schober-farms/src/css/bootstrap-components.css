@@ -1,5 +1,12 @@
 .card {
-  background-color: rgba(255, 255, 255, 0.5); }
+  background-color: rgba(255, 255, 255, 0.5);
+  width: 100%; }
+  .card.padding0 {
+    padding: 0px; }
+    .card.padding0 .card-block {
+      padding: 0px; }
+    .card.padding0 .col {
+      padding: 0px; }
   .card .card-header {
     background-color: #E2231A;
     color: #ffffff;
@@ -8,5 +15,12 @@
     padding: 10px 30px; }
   .card .card-block {
     background-color: rgba(255, 255, 255, 0.5); }
+  .card .table thead {
+    background-color: #E2231A;
+    color: #ffffff; }
+    .card .table thead th {
+      text-align: center; }
+  .card .table tbody td {
+    text-align: center; }
 
 /*# sourceMappingURL=bootstrap-components.css.map */

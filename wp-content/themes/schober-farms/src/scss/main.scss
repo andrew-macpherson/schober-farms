@@ -187,3 +187,53 @@ img{
 	background-attachment:fixed;
 	background-position:center center;
 }
+
+
+a{
+	&.blackBox{
+		display: block;
+
+		&:hover{
+			text-decoration: none;
+			color: #fff;
+		}
+	}
+}
+.blackBox{
+	background-color: #010101;
+	color: #ffffff;
+	text-align: center;
+	padding: 25px;
+
+	&.arrowBottom{
+		padding-bottom: 60px;
+	}
+
+	&.arrowBottom:after{
+        content: '';
+	    width: 0;
+	    height: 0;
+	    border-left: 15px solid transparent;
+	    border-right: 15px solid transparent;
+	    bottom: 20px;
+	    border-top: 20px solid #ffffff;
+	    position: absolute;
+	    left: 50%;
+	    margin-left: -12px;
+	}
+
+	p{
+		margin-bottom: 0px;
+		font-size:20px;
+		&:first-child{
+			font-size:30px;
+			line-height: 36px;
+			font-weight: 600;
+		}
+	}
+	
+	a{
+		color: #ffffff;
+	}
+
+}

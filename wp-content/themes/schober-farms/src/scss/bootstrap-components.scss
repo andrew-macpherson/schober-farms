@@ -2,6 +2,18 @@
 
 .card{
 	background-color: rgba(255,255,255,0.5);
+	width: 100%;
+
+	&.padding0{
+		padding:0px;
+		.card-block{
+			padding: 0px;
+		}
+
+		.col{
+			padding: 0px;
+		}
+	}
 
 	.card-header{
 		background-color: $primary-color;
@@ -12,5 +24,23 @@
 	}
 	.card-block{
 		background-color: rgba(255,255,255,0.5)
+	}
+
+
+	.table{
+		thead{
+			background-color: $primary-color;
+			color: #ffffff;
+
+			th{
+				text-align: center
+			}
+		}
+
+		tbody{
+			td{
+				text-align: center;
+			}
+		}
 	}
 }

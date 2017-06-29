@@ -33,8 +33,60 @@ register_nav_menus( array(
 
 
 
+//RESPONSIVE TABLE
+function table($atts,$content){
+    extract( shortcode_atts( array(
+        'id' => '',
+        'class' => '',
+        'headers' => ''
+    ), $atts ) );
 
-add_shortcode( 'card', 'card' );
+
+    $content = do_shortcode( shortcode_unautop( $content ) );
+    if ( '</p>' == substr( $content, 0, 4 )and '<p>' == substr( $content, strlen( $content ) - 3 ) )
+        $content = substr( $content, 4, strlen( $content ) - 7 );
+
+
+    $return = '';
+    $return .= '<table class="table '.$class.'" id="'.$id.'">';
+        $return .= '<thead>';
+            $return .= '<tr>';
+            $headings = explode('|', $headers);
+            foreach($headings as $header){
+                $return .= '<th>'.$header.'</th>';
+            }
+            $return .= '</tr>';
+        $return .= '</thead>';
+        $return .= '<tbody>';
+            $return .= force_balance_tags($content);
+        $return .= '</tbody>';
+    $return .= '</table>';
+
+    return $return;
+
+}
+add_shortcode('table','table');
+
+
+function table_row($atts,$content){
+    extract(shortcode_atts(array(
+        'id'    => '',
+        'class' => '',
+        'data'  => ''
+    ),$atts));
+
+    $return = '';
+    $return .= '<tr>';
+    $columns = explode('|', $data);
+    foreach($columns as $column){
+        $return .= '<td>'.$column.'</td>';
+    }
+    $return .= '</tr>';
+
+    return $return;
+}
+add_shortcode('table_row','table_row');
+
 
 //BUTTON SHORT CODES
 function button_func($atts,$content){
@@ -75,13 +127,13 @@ function card($atts,$content){
 
 
     return '
-        <div class="card">
+        <div id="'.$id.'" class="card '.$class.'">
             '.(($title != '')?'<div class="card-header">'.$title.'</div>':'').'
             <div class="card-block">'.force_balance_tags($content).'</div>
         </div>
     ';
 }
-
+add_shortcode( 'card', 'card' );
 
 function half_and_half($atts, $content = null) {
     extract(shortcode_atts(array(
@@ -114,6 +166,7 @@ function div($atts, $content = null) {
             'id' => '',
             'background_color' => '',
             'background_image' => '',
+            'link' => ''
     ), $atts));
 
     if($background_color != '' || $background_image != '' ){
@@ -126,7 +179,15 @@ function div($atts, $content = null) {
         if ( '</p>' == substr( $content, 0, 4 )and '<p>' == substr( $content, strlen( $content ) - 3 ) )
             $content = substr( $content, 4, strlen( $content ) - 7 );
         
-    return '<div id="'. $id .'" class="'. $class .'" '.(($openStyle) ? 'style="':'').' '.(($background_image != '') ? 'background-image: url('.$background_image.'); ':'').' '.(($background_color != '') ? 'background-color: '.$background_color.'; ':'').' '.(($openStyle) ? '"':'').'>'.force_balance_tags($content).'</div>';
+        $return = '';
+        $return .= '<'.(($link != '')?"a href='".$link."'":"div").' id="'. $id .'" class="'. $class .'" '.(($openStyle) ? 'style="':'').' '.(($background_image != '') ? 'background-image: url('.$background_image.'); ':'').' '.(($background_color != '') ? 'background-color: '.$background_color.'; ':'').' '.(($openStyle) ? '"':'').'>';
+            //if($link != ''){ $return .= '<a href="'.$link.'">'; }
+                $return .= force_balance_tags($content);
+            //if($link != ''){ $return .= '</a>'; }
+        $return .= '</'.(($link != '')?"a":"div").'>';
+
+        return $return; 
+    //return '<div id="'. $id .'" class="'. $class .'" '.(($openStyle) ? 'style="':'').' '.(($background_image != '') ? 'background-image: url('.$background_image.'); ':'').' '.(($background_color != '') ? 'background-color: '.$background_color.'; ':'').' '.(($openStyle) ? '"':'').'>'.force_balance_tags($content).'</div>';
 }
 add_shortcode ("div", "div");
 
