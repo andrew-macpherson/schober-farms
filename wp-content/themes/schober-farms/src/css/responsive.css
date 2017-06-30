@@ -1,0 +1,13 @@
+@media (max-width: 576px) {
+  .container {
+    width: 100%; }
+
+  .col {
+    width: 100%;
+    clear: both; } }
+@media (max-width: 1100px) {
+  .container .row {
+    margin-left: 0px;
+    margin-right: 0px; } }
+
+/*# sourceMappingURL=responsive.css.map */

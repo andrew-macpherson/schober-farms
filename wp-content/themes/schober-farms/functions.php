@@ -16,11 +16,17 @@ function schober_styles_scripts() {
 
     // SCSS COMIPLED CSS FILE
 
-    wp_register_style( 'bootstrap', get_template_directory_uri() . '/src/libraries/bootstrap-4.0.0/css/bootstrap.min.css', $deps, $ver, $in_footer );
+    wp_register_style( 'bootstrap', get_template_directory_uri() . '/src/libraries/bootstrap-4.0.0/css/bootstrap.min.css' );
     wp_enqueue_style('bootstrap');
 
-    wp_register_script( 'bootstrap', get_template_directory_uri() . '/src/libraries/bootstrap-4.0.0/js/bootstrap.min.js', $deps, $ver, $in_footer );
+    wp_register_script( 'bootstrap', get_template_directory_uri() . '/src/libraries/bootstrap-4.0.0/js/bootstrap.min.js',array(), '1', true );
     wp_enqueue_script('bootstrap');
+
+    wp_register_style( 'fancybox', get_template_directory_uri() . '/src/libraries/fancybox3/jquery.fancybox.min.css' );
+    wp_enqueue_style('fancybox');
+
+    wp_register_script('fancybox', get_template_directory_uri() . '/src/libraries/fancybox3/jquery.fancybox.min.js', array('jquery'), '1', true );
+    wp_enqueue_script('fancybox');
 }
 
 //REGISTER MENU
@@ -98,13 +104,32 @@ function button_func($atts,$content){
         'target' => '',
         'bg_color' => '',
         'text_color' => '',
-        'sub_title' => ''
+        'sub_title' => '',
+        'fancy_box_page_id' => ''
     ), $atts ) );
 
     $content = do_shortcode( shortcode_unautop( $content ) );
     if ( '</p>' == substr( $content, 0, 4 )and '<p>' == substr( $content, strlen( $content ) - 3 ) )
         $content = substr( $content, 4, strlen( $content ) - 7 );
-    return '<a href="'.$link.'" title="'.$title.'" class="btn '.$class.'" '.(($target != '') ? 'target="'.$target.'" ':'').' '.(($bg_color != '' || $text_color != '') ? 'style="'.(($bg_color != '')?'background-color:'.$bg_color.';border-color:'.$bg_color.';':'').' '.(($text_color != '')?'color:'.$text_color.';':'').' " ':'').'>' . force_balance_tags($content) . ' '.(($sub_title != '')?"<span class='sub_title'>".$sub_title."</span>":"").'</a>';
+
+    $return = '';
+
+    if($fancy_box_page_id == ''){
+        $return .= '<a href="'.$link.'" title="'.$title.'" class="btn '.$class.'" '.(($target != '') ? 'target="'.$target.'" ':'').' '.(($bg_color != '' || $text_color != '') ? 'style="'.(($bg_color != '')?'background-color:'.$bg_color.';border-color:'.$bg_color.';':'').' '.(($text_color != '')?'color:'.$text_color.';':'').' " ':'').'>' . force_balance_tags($content) . ' '.(($sub_title != '')?"<span class='sub_title'>".$sub_title."</span>":"").'</a>';
+    }else{
+        $return .= '<a href="javascript" data-src="#modal'.$fancy_box_page_id.'" data-fancybox="modal" title="'.$title.'" class="btn '.$class.'" '.(($target != '') ? 'target="'.$target.'" ':'').' '.(($bg_color != '' || $text_color != '') ? 'style="'.(($bg_color != '')?'background-color:'.$bg_color.';border-color:'.$bg_color.';':'').' '.(($text_color != '')?'color:'.$text_color.';':'').' " ':'').'>' . force_balance_tags($content) . ' '.(($sub_title != '')?"<span class='sub_title'>".$sub_title."</span>":"").'</a>';
+    }
+    
+
+
+    if($fancy_box_page_id != ''){
+        $fancyBocContent = get_post($fancy_box_page_id); 
+        $fancyContent = $fancyBocContent->post_content;
+        $fancyContent = apply_filters('the_content',$fancyContent);
+        $return .= '<div id="modal'.$fancy_box_page_id.'" style="display:none;">'.$fancyContent.'</div>';
+    }
+
+    return $return;
 }
 
 add_shortcode( 'button', 'button_func' );
@@ -191,6 +216,27 @@ function div($atts, $content = null) {
 }
 add_shortcode ("div", "div");
 
+function container_fluid($atts, $content = null) {
+    extract(shortcode_atts(array(
+            'class' => '',
+            'id' => '',
+            'background_color' => '',
+            'background_image' => '',
+    ), $atts));
+
+    if($background_color != '' || $background_image != '' ){
+        $openStyle = true;
+    }else{
+        $openStyle = false;
+    }
+
+    $content = do_shortcode( shortcode_unautop( $content ) );
+        if ( '</p>' == substr( $content, 0, 4 )and '<p>' == substr( $content, strlen( $content ) - 3 ) )
+            $content = substr( $content, 4, strlen( $content ) - 7 );
+
+    return '<div id="'. $id .'" class="container-fluid '. $class .'" '.(($openStyle) ? 'style="':'').' '.(($background_image != '') ? 'background-image: url('.$background_image.'); ':'').' '.(($background_color != '') ? 'background-color: '.$background_color.'; ':'').' '.(($openStyle) ? '"':'').'>'.do_shortcode($content).'</div>';
+}
+add_shortcode ("container_fluid", "container_fluid");
 
 function container($atts, $content = null) {
     extract(shortcode_atts(array(

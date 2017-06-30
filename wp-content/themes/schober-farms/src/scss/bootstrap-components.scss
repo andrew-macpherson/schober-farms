@@ -44,3 +44,29 @@
 		}
 	}
 }
+
+.btn-default{
+	@include background-animate();
+    background-color: #ffffff;
+
+    color: #231F20 !important;
+    font-family: arial;
+    font-size: 28px;
+    cursor: pointer;
+    font-weight: 600;
+   
+
+    &:hover{
+    	background-color: $primary-color;
+    	color: #ffffff !important;
+    }
+}
+
+.btn-primary{
+	@include background-animate();
+
+	&:hover{
+		background-color: #B21C1B;
+		border-color: #B21C1B;
+	}
+}
