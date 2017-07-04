@@ -15,6 +15,7 @@ module.exports = function(grunt) {
 				}]
 			}
 		},
+		/*
 		clean: {
 		  css: ['wp-content/themes/schober-farms/src/css/*.css']
 		},
@@ -30,10 +31,11 @@ module.exports = function(grunt) {
 	            dest: 'wp-content/themes/schober-farms/src/style.css'
 	        }
 	    },
+	    */
 		watch: {
 			css: {
-				files: 'wp-content/themes/schober-farms/src/scss/*.scss',
-				tasks: ['sass','concat']
+				files: 'wp-content/themes/schober-farms/src/scss/**/*.scss',
+				tasks: ['sass']
 			}
 		}
 	});
@@ -46,5 +48,5 @@ module.exports = function(grunt) {
 
 
 	grunt.registerTask('default',['watch']);
-	grunt.registerTask('build',['concat']);
+	grunt.registerTask('build',['sass']);
 }

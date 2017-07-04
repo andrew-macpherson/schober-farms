@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <?php wp_head(); ?>
-        <link rel='stylesheet' id='style-css'  href='<?php echo get_template_directory_uri(); ?>/src/style.css'' type='text/css' media='all' />
+        <link rel='stylesheet' id='style-css'  href='<?php echo get_template_directory_uri(); ?>/src/css/style.css'' type='text/css' media='all' />
     </head>
     <body>
 
@@ -21,7 +21,7 @@
 	<div class="container">
 		<?php wp_nav_menu( array('menu' => 'main') ); ?>
 		<div class="phoneNumber">
-			<span>CALL (705) 322-PIGS (7447)</span>
+			<span class="phonenumber">CALL (705) 322-PIGS (7447)</span>
 		</div>
 	</div>
 </nav>

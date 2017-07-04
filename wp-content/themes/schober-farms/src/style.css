@@ -488,6 +488,9 @@ a.blackBox {
       padding: 0px;
       margin: 0px; }
 
+.phonenumber a {
+  color: #ffffff; }
+
 /*# sourceMappingURL=main.css.map */
 
 @-webkit-keyframes bounce {

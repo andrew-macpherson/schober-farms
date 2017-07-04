@@ -26,6 +26,168 @@
     transform: translateY(-15px); }
   60% {
     transform: translateY(-5px); } }
+.card {
+  background-color: rgba(255, 255, 255, 0.5);
+  width: 100%; }
+  .card.padding0 {
+    padding: 0px; }
+    .card.padding0 .card-block {
+      padding: 0px; }
+    .card.padding0 .col {
+      padding: 0px; }
+  .card .card-header {
+    background-color: #E2231A;
+    color: #ffffff;
+    font-size: 30px;
+    line-height: 60px;
+    padding: 10px 30px; }
+  .card .card-block {
+    background-color: rgba(255, 255, 255, 0.5); }
+  .card .table thead {
+    background-color: #E2231A;
+    color: #ffffff; }
+    .card .table thead th {
+      text-align: center; }
+  .card .table tbody td {
+    text-align: center; }
+
+.btn-default {
+  transition: color 0.5s ease, background-color 0.5s ease;
+  background-color: #ffffff;
+  color: #231F20 !important;
+  font-family: arial;
+  font-size: 28px;
+  cursor: pointer;
+  font-weight: 600; }
+  .btn-default:hover {
+    background-color: #E2231A;
+    color: #ffffff !important; }
+
+.btn-primary {
+  transition: color 0.5s ease, background-color 0.5s ease; }
+  .btn-primary:hover {
+    background-color: #B21C1B;
+    border-color: #B21C1B; }
+
+header {
+  padding: 20px 0;
+  text-align: center; }
+  header .container {
+    padding: 0px; }
+
+nav {
+  background: #E2231A;
+  text-align: center;
+  margin: 0 auto; }
+  nav .menu {
+    padding-left: 0px;
+    margin-bottom: 0px; }
+    nav .menu > li {
+      list-style: none;
+      display: inline-block;
+      padding: 0px 10px; }
+      nav .menu > li > a {
+        color: #ffffff;
+        text-decoration: none;
+        display: block;
+        padding: 20px 0 16px 0;
+        text-transform: uppercase;
+        font-weight: 600; }
+      nav .menu > li > a:hover {
+        border-bottom: 4px solid #ffffff; }
+    nav .menu > li.current-menu-item a {
+      border-bottom: 4px solid #ffffff; }
+  nav .phoneNumber {
+    padding-left: 0px;
+    border-left: 0px;
+    float: none;
+    display: block;
+    margin-top: 0px;
+    color: #fff;
+    line-height: 30px;
+    font-weight: 600; }
+  nav .container {
+    padding: 0px; }
+
+@media (min-width: 1200px) {
+  nav .phoneNumber {
+    float: right;
+    margin-top: -43px;
+    border-left: 1px solid #fff;
+    padding-left: 40px; } }
+footer span {
+  position: relative;
+  clear: both;
+  display: block; }
+footer .col-md-8 *:first-child {
+  margin-top: 0px; }
+footer .col-md-8 * {
+  font-size: 18px;
+  margin-top: 40px; }
+footer .col-md-8 span.lead {
+  font-size: 30px;
+  font-style: italic; }
+footer .col-md-4 {
+  text-align: right; }
+  footer .col-md-4 .phone {
+    font-style: italic;
+    color: #E2231A;
+    font-size: 24px; }
+  footer .col-md-4 *:first-child {
+    margin-top: 0px; }
+  footer .col-md-4 * {
+    font-size: 17px;
+    margin-top: 20px;
+    line-height: 25px; }
+
+@media (max-width: 1100px) {
+  .container .row {
+    margin-left: 0px;
+    margin-right: 0px; } }
+@media (max-width: 768px) {
+  .container.paddingtop250 {
+    padding-top: 100px; }
+  .container.paddingbottom250 {
+    padding-bottom: 100px; }
+  .container .row.equalWidthButtons .col {
+    margin: 10px 0; }
+    .container .row.equalWidthButtons .col p {
+      text-align: center !important; }
+
+  .largeWhiteBtn {
+    font-size: 30px; }
+
+  footer .col-md-8 {
+    text-align: center; }
+  footer .col-md-4 {
+    margin-top: 40px;
+    text-align: center; } }
+@media (max-width: 1000px) {
+  .col div.mapContent {
+    width: inherit;
+    margin: 0px; } }
+@media (max-width: 576px) {
+  .container {
+    width: 100%; }
+    .container .mainHeadline .col:last-child {
+      padding-left: 15px; }
+    .container .mainHeadline .col:first-child {
+      padding-right: 15px; }
+    .container .row .col {
+      margin-top: 20px; }
+      .container .row .col:first-child {
+        margin-top: 0px; }
+
+  .redWhiteBg {
+    background: #E2231A; }
+    .redWhiteBg .row div * {
+      color: #ffffff; }
+
+  .largeWhiteBtn {
+    font-size: 20px; }
+
+  .centerImageSm {
+    text-align: center; } }
 body {
   font: 100% Arial, sans-serif;
   color: #010101; }
@@ -282,4 +444,7 @@ a.blackBox {
       padding: 0px;
       margin: 0px; }
 
-/*# sourceMappingURL=main.css.map */
+.phonenumber a {
+  color: #ffffff; }
+
+/*# sourceMappingURL=style.css.map */

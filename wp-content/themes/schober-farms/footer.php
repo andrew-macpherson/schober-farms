@@ -18,5 +18,18 @@
 </footer>
 
 <?php wp_footer(); ?>
+
+
+<script>
+	
+	var windoww = jQuery(window).width();
+	console.log(windoww);
+	if(windoww < 767){
+        var phonenum = '7053227447';
+        jQuery('.phonenumber').html('<a onclick="__gaTracker(\'send\', \'event\', \'phoneNumber\', \'clickToCall\');" href="tel:'+phonenum+'" title="callUsToday">'+phonenum+'</a>');
+    }
+
+</script>
+
 </body>
 </html>

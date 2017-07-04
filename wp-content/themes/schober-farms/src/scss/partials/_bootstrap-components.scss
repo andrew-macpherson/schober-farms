@@ -1,5 +1,3 @@
-@import "mixins";
-
 .card{
 	background-color: rgba(255,255,255,0.5);
 	width: 100%;
@@ -14,7 +12,6 @@
 			padding: 0px;
 		}
 	}
-
 	.card-header{
 		background-color: $primary-color;
 		color: #ffffff;
@@ -22,6 +19,7 @@
 		line-height: 60px;
 	    padding: 10px 30px;	
 	}
+	
 	.card-block{
 		background-color: rgba(255,255,255,0.5)
 	}
