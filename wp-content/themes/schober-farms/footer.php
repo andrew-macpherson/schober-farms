@@ -9,7 +9,7 @@
 			</div>
 			<div class="col-12 col-md-4">
 				<span class="phone">Call 705-322-PIGS (7447)</span>
-				<a href="#" class="btn btn-primary">GET DIRECTIONS</a>
+				<a href="<?php echo get_site_url(); ?>/contact-us/" class="btn btn-primary">GET DIRECTIONS</a>
 				<span>4145 Crossland Road<br/>
 				Tiny, Ontario L0L 1P1</span>
 			</div>
@@ -23,9 +23,8 @@
 <script>
 	
 	var windoww = jQuery(window).width();
-	console.log(windoww);
 	if(windoww < 767){
-        var phonenum = '7053227447';
+        var phonenum = jQuery('.phonenumber').html();
         jQuery('.phonenumber').html('<a onclick="__gaTracker(\'send\', \'event\', \'phoneNumber\', \'clickToCall\');" href="tel:'+phonenum+'" title="callUsToday">'+phonenum+'</a>');
     }
 
