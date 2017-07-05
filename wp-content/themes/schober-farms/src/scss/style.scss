@@ -2,7 +2,6 @@
 @import "partials/_bootstrap-components";
 @import "partials/_header";
 @import "partials/_footer";
-@import "partials/_responsive";
 
 body {
   font: 100% $font-stack;
@@ -58,6 +57,13 @@ img{
 		position: relative;
 	    display: block;
 	    margin: 0 auto;
+	}
+}
+
+ol{
+	li{
+		margin-bottom: 10px;
+		line-height: 28px;
 	}
 }
 
@@ -222,7 +228,9 @@ img{
 	background-attachment:fixed;
 	background-position:center center;
 }
-
+.coverBg{
+	background-size:cover;
+}
 
 a{
 	&.blackBox{
@@ -364,4 +372,121 @@ a{
 	a{
 		color: #ffffff;
 	}
+}
+
+
+
+
+
+
+
+
+@media (max-width: 1100px){
+	.container .row{
+		margin-left: 0px;
+		margin-right: 0px;
+	}
+}
+
+
+// MD breakpoint 
+@media (max-width: 768px){
+
+	.container{
+		&.paddingtop250{
+			padding-top: 100px;
+		}
+		&.paddingbottom250{
+			padding-bottom: 100px;
+		}
+		.row{
+			&.equalWidthButtons{
+				.col{
+					margin: 10px 0;
+					p{
+						text-align: center !important;
+					}
+				}
+			}
+		}
+	}
+
+
+
+	.largeWhiteBtn{
+		font-size: 30px;
+	}
+
+
+	footer{
+		.col-md-8{
+			text-align: center;
+		}
+		.col-md-4{
+			margin-top: 40px;
+			text-align: center;
+		}
+
+	}
+
+}
+
+// For Contact Page Page
+@media (max-width: 1000px){
+	.col{
+		div{
+			&.mapContent{
+				width: inherit;
+				margin: 0px;
+			}
+		}	
+	}
+	
+}
+
+// SM breakpoint  
+@media (max-width: 576px){
+	.container{
+		width: 100%;
+		.mainHeadline{
+			.col{
+				&:last-child{
+					padding-left: 15px;
+				}
+				&:first-child{
+					padding-right: 15px;
+				}
+			}
+		}
+		.row{
+			.col{
+				margin-top: 20px;
+				&:first-child{
+					margin-top: 0px;
+				}
+			}
+		}
+	}
+
+	.redWhiteBg{
+		background: $primary-color;
+		.row{
+			div{
+				 *{
+				 	color:#ffffff;
+				 }	
+			}
+
+		}
+	}
+
+
+	.largeWhiteBtn{
+		font-size: 20px;
+	}
+
+	.centerImageSm{
+		text-align: center;
+	}
+
 }
